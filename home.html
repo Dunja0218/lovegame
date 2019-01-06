@@ -54,30 +54,6 @@ body {
 	margin-left: -12px;
 }
 
-.search-input-label {
-	display: block;
-	font-size: 25px;
-}
-
-.search-input {
-	font-family: inherit;
-	font-size: 20px;
-	max-width: 100%;
-	width: 280px;
-	height: 35px;
-	border: none;
-	border-radius: 15px;
-	margin: 10px 0 30px;
-	text-align: center;
-	color: #111;
-	background-color: #e5e5e5;
-	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
-.search-input:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px #02b1c8;	
-}
 
 .search-output {
 	max-width: 750px;
@@ -138,7 +114,9 @@ body {
 	max-width: 100%;
 	margin: auto;
 	border: 5px solid #fcfcfc;
-	border-radius: 20px;	
+	border-radius: 20px;
+	position: relative;
+	top:-200px;
 }
 
 @media (max-width: 600px) {
@@ -172,12 +150,7 @@ body {
 		transform: rotate(360deg);
 	}
 }
-@each $button, $color in $colors {
-  .#{$button} {
-    --color: #{$color};
-    --hover: #{adjust-hue($color, 45deg)};
-  }
-}
+
 
 button {
 	background: none;
@@ -215,6 +188,7 @@ a{
 	text-decoration: none;
 	color:#ffa260;
 }
+
 </style>
 <script>
 		
@@ -225,7 +199,7 @@ a{
     
 		<h1 class="heading">Choose <span>The</span> Character</h1>
 		<h2>點擊Introduction為打開介紹<br>點擊側邊角色名稱可進入遊戲</h2>
-  
+		<div class = "search-output">
 		<div class="buttons"><button class="raise" onclick="javascript:location.href='story.html'">Dunja</button></div>
 				
 				<details class="character-details">
@@ -244,11 +218,11 @@ a{
 									<details class="character-info-item" open>
 											<summary class="character-info-item-summary">Personality</summary>
 											<p class="character-info-item-data">
-												♥喜歡沒有重點的對話<br>
-												♥想幫別人剪瀏海但自己卻不敢給別人剪<br>
-												♥常常騙室友<br>
-												♥每天都會很早起床<br>
-												 並趁室友睡覺時發出噪音<br>
+												♥喜歡沒有重點的對話<br><br>
+												♥想幫別人剪瀏海但自己卻不敢給別人剪<br><br>
+												♥常常騙室友<br><br>
+												♥每天都會很早起床<br><br>
+												 並趁室友睡覺時發出噪音<br><br>
 												♥會合理化自己的口吃
 											</p>
 									</details>
@@ -261,21 +235,18 @@ a{
 									<details class="character-info-item" open>
 											<summary class="character-info-item-summary">Skill</summary>
 											<p class="character-info-item-data">
-												♥唬爛<br>
-												♥系籃兼校籃苦力花<br>
-												♥常常在運動卻還是可以維持很重的體重<br>
+												♥唬爛<br><br>
+												♥系籃兼校籃苦力花<br><br>
+												♥常常在運動卻還是可以維持很重的體重<br><br>
 												♥帶著一個本壘板還是可以跳很高跑很快
 											</p>
 									</details>
 		
 							</div>
-		
 							<div class="character-image-container">
-		
-									<img class="character-image" src="007.gif" alt="${character.name}">
-		
+
+									<img class="character-image" src="007.jpg" alt="${character.name}">
 							</div>
-		
 					</div>
 		
 			</details>
@@ -298,12 +269,12 @@ a{
 								<details class="character-info-item" open>
 										<summary class="character-info-item-summary">Personality</summary>
 										<p class="character-info-item-data">
-											1. 淘氣可愛從不是<br>
-											2. 憤世忌俗少說話<br>
-											3. 傲嬌不理低逼兒<br>
-											4. 愛畫眉毛超級長<br>
-											5. 天生臉臭人勿近<br>
-											6. 破麻湯圓吃最多<br>
+											1. 淘氣可愛從不是<br><br>
+											2. 憤世忌俗少說話<br><br>
+											3. 傲嬌不理低逼兒<br><br>
+											4. 愛畫眉毛超級長<br><br>
+											5. 天生臉臭人勿近<br><br>
+											6. 破麻湯圓吃最多<br><br>
 										</p>
 								</details>
 	
@@ -315,11 +286,11 @@ a{
 								<details class="character-info-item" open>
 										<summary class="character-info-item-summary">Skill</summary>
 										<p class="character-info-item-data">
-											1. 排球高手<br>
-											2. 壓爆螞蟻<br>
-											3. 睡前抬腳<br>
-											4. 食量無限<br>
-											5. 想不到吧<br>
+											1. 排球高手<br><br>
+											2. 壓爆螞蟻<br><br>
+											3. 睡前抬腳<br><br>
+											4. 食量無限<br><br>
+											5. 想不到吧<br><br>
 										</p>
 								</details>
 	
@@ -327,13 +298,14 @@ a{
 	
 						<div class="character-image-container">
 	
-								<img class="character-image" src="IMG_7075.gif" alt="${character.name}">
+								<img class="character-image" src="27.jpg" alt="${character.name}">
 	
 						</div>
 	
 				</div>
 	
 		</details>
+		</div>
 	</div>
 	
 </body>
