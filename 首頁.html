@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>首頁</title>
+        <style type="text/css">
+            html,body{height:100%}
+            .bg_heart{position:relative;top:0;left:0;width:100%;height:100%;overflow:hidden}
+
+            .heart{position:absolute;top:-50%;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-m-transform:rotate(-45deg);transform:rotate(-45deg)}
+            .heart:before{position:absolute;top:-50%;left:0;display:block;content:"";width:100%;height:100%;background:inherit;border-radius:100%;}
+            .heart:after{position:absolute;top:0;right:-50%;display:block;content:"";width:100%;height:100%;background:inherit;border-radius:100%;}
+
+            @-webkit-keyframes love {
+                0%{top:110%}
+            }
+            @-moz-keyframes love {
+                0%{top:110%}
+            }
+            @-ms-keyframes love {
+                0%{top:110%}
+            }
+            @keyframes love {
+                0%{top:110%}
+            }
+
+            body {
+                background-image: url('homepage.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position-y: -300px;
+            }
+            .button {
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                padding: 12px;
+                border: 1px solid #a12727;
+                border-radius: 100px;
+                background: #ff4a4a;
+                background: -webkit-gradient(linear, left top, left bottom, from(#ff4a4a), to(#265099));
+                background: -moz-linear-gradient(top, #ff4a4a, #265099);
+                background: linear-gradient(to bottom, #ff4a4a, #265099);
+                -webkit-box-shadow: #ff5959 0px 0px 40px 0px;
+                -moz-box-shadow: #ff5959 0px 0px 40px 0px;
+                box-shadow: #ff5959 0px 0px 40px 0px;
+                text-shadow: #591717 1px 1px 3px;
+                font: normal normal bold 20px trebuchet ms;
+                color: #ffffff;
+                text-decoration: none;
+                width: 200px;
+            }
+            .button:hover,
+            .button:focus {
+                background: #ff5959;
+                background: -webkit-gradient(linear, left top, left bottom, from(#ff5959), to(#2e60b8));
+                background: -moz-linear-gradient(top, #ff5959, #2e60b8);
+                background: linear-gradient(to bottom, #ff5959, #2e60b8);
+                color: #ffffff;
+                text-decoration: none;
+            }
+            .button:active {
+                background: #982727;
+                background: -webkit-gradient(linear, left top, left bottom, from(#982727), to(#265099));
+                background: -moz-linear-gradient(top, #982727, #265099);
+                background: linear-gradient(to bottom, #982727, #265099);
+            }
+            .button:before{
+                content:  "\0000a0";
+                display: inline-block;
+                height: 24px;
+                width: 24px;
+                line-height: 24px;
+                margin: 0 4px -6px -4px;
+                position: relative;
+                top: 0px;
+                left: 0px;
+                background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAFaElEQVRIibWVa2xUxxXHf3Pv3fW+st71C8fE4AdYBoqBtdf2bhQrDQmhhhASSBRQpUaN1BahVLUiVWopidqoapQXIWmkiE+hUtqghiiiIKWhSgjgrB3jFTgO0BiMidc23bXNrr2vu6/ph10bU0iifshIR/fc0ZnfOTP/oxn4nof4f4Jdbk9ViT39myKDnJ8LhQ3xbFbs6e/zZW63RnO1eG1CyLK0bhsZGDj+rQmqyvQ/Htz7xZM2c57lG3Tw27caunIZ7Sa4x+NBz1AjhZxUEHKjFFzRiqLdLrfH9S3Vt/6kfezHJTNpjP+RjJ038cJf6g7oSe21M2dOL4xz6Rm6gStCig0KoCEFILyqwil3W3vnLfBWr7K2evalLauCmkxAeFrj2UPLTwfDxmdUVSpzce42z2ZV4RQIb+H0jQoQFAUlKpwpy44HJv7mcnsaFiYQyEe3rAl2RHUVIeBy1IKraaal2JYZyki5slB5w84N4++UOVIWcUPZoAIMSilTipC0NEbY9eiofUVNbP+yZRvno6Rk5g9H67t+fbgxjAY/aJolmlBnIlHtYX+fb9DlcrGyJvbGLx4ZtbsbI4AEZArEgCYUJbisPNrzyvaLHZV36igG2HbvtY0XRqxNwMC61nYLEkuJM73aXppxvN69lItXrfQOFe9DMgiAWrR22w8DG4oMOZ7tvMTP1o3yzN8bPxuaME9q/b3diFbP/qtT5o7FDh0Zh/vdU7z819odbd52b+eDob2bHgxVrWqMUlSUA0DXFb68YPvT0Q/LnzYY25/XlFzt/e4piIOagJEpM5dCljf8ft+c8u3Kzoeajs8eUqU8hpQDyK5djelzZ2xSRpFyEinHkTJQsPHCXBR5tu8O2bWrMS0HkPIYcvZdVe54qOmfzW6PktdvrlNaPFX3Nk6f+v3mS3XWO7OkFwkMBgmJwpHebgjADOmUwBCURCdUnvvH8uFPv3Le7e/zXQNQ52InxgOzurHh/e5h5+NtVRF7JGXg7aOLiUQNLK+O53kibxS+H/rKOHqinGp7kkhA45fvrgz4v7Z7/X2+iTmu8j8VVTz2o2uV1c1J9h3p5OSXbfzuQAP9F+033SkC6Bks5l//fop3PlrMr/68giXNSbZvvFYJVC5E3pRgyaLk7k2ekAYwdHkMVZ+mxGZkJqYhnSBrCuaAuK7yhb+XmnILybQRBGz2hLTqRcndC5nqwp+dndY372uZtgsBSypjBEJG3CuDPLZ+nKwueO6V5XzySSn3rLhOzaIk07MKOZnl51uHWVqZRNUkQyPW8hM91/fdsoO1zXcrTpm+S8wA71np2GNif90QXU8MA/DiwTrspgz2ogwvHqwDJF1PDLO/doh79pjgsBURAadM39Xc3DHP1eacVOJ6Lp5SwzKEY7LHTCyrYj1nomxrDFWFp7dfJa7n11lMWVQ131yT50z52B4TZWtixHU13N9/MndLgvPnz3O2vulEJiu2OraFUerM2LfE58W1WzMU2/K+5EZ/O54Ko1SksK+Lk8kKzgbu+PgbNTAW110ttaWfXF0/o1iWpVAzEvQ8cb6LciBSQByYBjUhsdSlUCyS9/yVmSPnKn46MR4Yu22C0tqlgYtf27L1FfH11SXJfKlpIAZEChYGZgpz6cJCAacvO3n5o9o92aw8NDY2z785QXB0FGf50u6TQyXTOSnWr6qKqgZVzlcvRGEn8oafTCsc9C1Ovnq8tiumq6+e6etdiPzmN9nV6m2odib2PrBiamtbbdhWXx7HbMhrl0grXA5a6B1xRI9fKP1gdNr0vL/P99XtON/56De7PQ4JXk2VTU5zplwC4YQWymTFAILP/J/7wt/F+F7HfwFvezwLEoVBxwAAAABJRU5ErkJggg==") no-repeat left center transparent;
+                background-size: 100% 100%;
+            }
+            img {
+                width: 30%;
+                height: 70%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+            #dialog {
+                display: none;
+            }
+            
+
+            .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            }
+
+            .closebtn:hover {
+            color: black;
+            }
+        </style>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.3/sweetalert2.js" type="text/javascript"></script>
+        <script>
+            var love = setInterval(function(){
+            var r_num = Math.floor(Math.random() * 40) + 1;
+	        var r_size = Math.floor(Math.random() * 65) + 10;
+	        var r_left = Math.floor(Math.random() * 100) + 1;
+	        var r_bg = Math.floor(Math.random() * 25) + 100;
+            var r_time = Math.floor(Math.random() * 5) + 5;
+  
+            $('.bg_heart').append("<div class='heart' style='width:"+r_size+"px;height:"+r_size+"px;left:"+r_left+"%;background:rgba(255,"+(r_bg-25)+","+r_bg+",1);-webkit-animation:love "+r_time+"s ease;-moz-animation:love "+r_time+"s ease;-ms-animation:love "+r_time+"s ease;animation:love "+r_time+"s ease'></div>");
+  
+            $('.bg_heart').append("<div class='heart' style='width:"+(r_size-10)+"px;height:"+(r_size-10)+"px;left:"+(r_left+r_num)+"%;background:rgba(255,"+(r_bg-25)+","+(r_bg+25)+",1);-webkit-animation:love "+(r_time+5)+"s ease;-moz-animation:love "+(r_time+5)+"s ease;-ms-animation:love "+(r_time+5)+"s ease;animation:love "+(r_time+5)+"s ease'></div>");
+  
+            $('.heart').each(function(){
+                var top = $(this).css("top").replace(/[^-\d\.]/g, '');
+                var width = $(this).css("width").replace(/[^-\d\.]/g, '');
+                if(top <= -100 || width >= 150){
+                $(this).detach();
+                }
+            });
+            },500);
+            var picB;
+            var num;
+            var interval=null;
+            var newimg;
+            var i=0;
+
+            function start()
+            {
+                picB = document.getElementById("pic");
+                picB.addEventListener("click", run, false); 
+            }
+
+            function run()
+            {
+                interval = window.setInterval("ugly()", 500);
+            }
+
+            function ugly()
+            {
+                i++;
+                newimg = document.createElement("img");
+                num = Math.floor(1 + Math.random() * 33);
+                newimg.setAttribute("src", num + ".jpg");
+                newimg.setAttribute("style", "z-index:" + i + ";");
+                document.body.appendChild(newimg);
+            }
+
+
+            window.addEventListener("load", start, false);
+        </script>
+    </head>
+    <body id="body">
+        <div class="bg_heart" >
+            <p style="text-align: center;position :relative;top: 600px;"><a class="button" href="home.html" id = "opener">Play The Game</a></p>
+            <p style="text-align: center;position :relative;top: 600px;"><a id="pic" class="button" href="#">Don't touch me</a></p>
+        </div>
+    </body>
+</html>

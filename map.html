@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Map</title>
+        <style type="text/css">
+        body{
+            background-image: url("map.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-position-y: 0px;
+            background-size: 100%;
+            
+        }
+        img{
+            position: absolute;
+        }
+        .sch{
+            top:50px;
+            left:300px;
+        } 
+        .sch:hover{
+            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+            width: 20%;
+        }
+        .hou{
+            top:400px;
+            left:300px;
+        }
+        .hou:hover{
+            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+            width: 20%;
+        }
+        .par{
+            top:400px;
+            left:900px;
+        }
+        .par:hover{
+            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+            width: 20%;
+        }
+        .tem{
+            top:50px;
+            left:900px;
+        }
+        .tem:hover{
+            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+            width: 20%;
+        }
+        .chat{
+            display: none;
+            background-color:rgb(241, 238, 225, 0.4);
+            width: 100%;
+            height: 30%;
+            position: fixed;
+            bottom: 10px;
+        }
+        .talktext {
+            padding: 1em;
+            text-align: left;
+            line-height: 1.5em;
+        }
+        @keyframes blink {
+        from, to {
+            color: transparent;
+        }
+        50% {
+            color: black;
+        }
+    }
+        p{
+            font-size: 20px;
+        }
+#my_string span {
+    animation: blink 1s step-end infinite;
+}
+        .bt{
+            position: relative;
+            text-align: center;
+            border: 1px solid #a12727;
+            vertical-align: middle;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 100px;
+            background: #ff4a4a;
+            background: -webkit-gradient(linear, left top, left bottom, from(#ff4a4a), to(#265099));
+            background: -moz-linear-gradient(top, #ff4a4a, #265099);
+            background: linear-gradient(to bottom, #ff4a4a, #265099);
+            -webkit-box-shadow: #ff5959 0px 0px 40px 0px;
+            -moz-box-shadow: #ff5959 0px 0px 40px 0px;
+            box-shadow: #ff5959 0px 0px 40px 0px;
+            text-shadow: #591717 1px 1px 3px;
+            font: normal normal bold 20px trebuchet ms;
+            width:40%;
+            height:20%;
+            border:2px blue none;
+            color: #ffffff;
+            text-decoration: none;
+            left: 800px;
+            top:200px;
+            font-size: 20px;
+            animation:mymove 1s ;
+            -webkit-animation:mymove 1s ; 
+        }
+        .bt:hover{
+            background: #ff5959;
+            background: -webkit-gradient(linear, left top, left bottom, from(#ff5959), to(#2e60b8));
+            background: -moz-linear-gradient(top, #ff5959, #2e60b8);
+            background: linear-gradient(to bottom, #ff5959, #2e60b8);
+            color: #ffffff;
+        }
+        
+        @keyframes mymove
+        {
+            from {left:0px;}
+            to {left:800px;}
+        }
+
+        @-webkit-keyframes mymove /*Safari and Chrome*/
+        {
+            from {left:0px;}
+            to {left:800px;}
+    }
+
+        </style>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        
+        function start() {
+            var A = document.getElementById("img1").addEventListener( "click", play1, false );
+            var B = document.getElementById("img2").addEventListener( "click", play2, false );
+            var C = document.getElementById("img3").addEventListener( "click", play3, false );
+            var D = document.getElementById("img4").addEventListener( "click", play4, false );
+            
+        }
+        function play1 () {
+            document.getElementById("Body").style.backgroundImage="url('gate.jpeg')";
+            document.getElementById("dody").style.display="none";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("chat").style.display="block";
+            document.getElementById("my_string").innerHTML =
+            'Bebo: 每天都系館打程式是我的日常，雖然程式都打不出來，但來這邊可以看到我喜歡的大五學長我就很開心，不知道今天下課能不能碰到他！！<br>'
+            +'（走到系館門口），那不是大五學長嗎！還穿著球衣好帥喔～～如果他是我的男朋友有該有多好。<br>'
+            +'Wait! Wait! Wait! What? 學長穿球褲居然卡屁縫0.0我該不該過去跟他說呢！<img src = "brro.png" style = "position: fixed;top:100px;left:500px;width: 30%;">'
+            ;
+                document.getElementById("btn1").value="馬上衝過去 大聲和他說[學長你卡屁縫了！]";
+                document.getElementById("btn2").value="偷偷跟在他後面 然後用迅雷不及掩耳的速度幫他拉出來～";
+            
+            var A1 = document.getElementById("btn1").addEventListener( "click", play11, false );
+            var A2 = document.getElementById("btn2").addEventListener( "click", play12, false );
+        }
+
+        function play11() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '大五學長：學妹，妳怎麼那麼貼心，不過還真令人害臊>_<，但我好像在哪裡看過妳對不對！<br>'
+            +'大五學長：啊！是不是上次湯圓大會，妳就是把湯圓煮到破麻的那個女孩？<br>'
+            +'Bebo：ㄜ……是我沒錯！（這種事情居然被學長知道)<br>'
+            +'大五學長：那既然都下課了要不要一起去晚餐？<br>'
+            +'有家高級義式料理我覺得還不錯就在附近，現在我就可以載妳過去<img src = "bro2.png"style = "position: fixed;top:100px;left:200px;width: 50%;" >';
+            
+                
+                document.getElementById("button12").style.display="block";
+                document.getElementById("btn1").value="答應學長！共享燭光晚餐";
+                document.getElementById("btn2").value="回家乖乖寫網頁程式設計的專案，別肖想學長的肉體";
+            var A11 = document.getElementById("btn1").addEventListener( "click", play111, false );
+            var A12 = document.getElementById("btn2").addEventListener( "click", play112, false );
+        }
+
+        function play12() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '大五學長：學妹！妳怎麼能Touch My Body！妳差一點就碰到我的小老弟了妳知不知道！<br>'
+            +'Bebo：學長對不起，我只是看到你球褲卡屁縫了，想說幫你拉一拉，不然你的形象會受損。<br>'
+            +'大五學長：既然碰都碰了，我也不想多跟妳計較了，妳還是離我滾遠一點吧！<br>'
+            +'Bebo：到底該怎麼辦惹學長生氣了！<br><img src = "bebo3.png"style = "position: fixed;top:200px;left:0px;width: 20%;" >';
+            
+                document.getElementById("button12").style.display="block";
+                document.getElementById("btn1").value="追上去請學長去吃988";
+                document.getElementById("btn2").value="多人混戰，讓他知道老娘海大溜久大魔王不是叫假的";
+            var A13 = document.getElementById("btn1").addEventListener( "click", play121, false );
+            var A14 = document.getElementById("btn2").addEventListener( "click", play122, false );
+        }
+        
+        function play121() {
+            document.getElementById("Body").style.backgroundImage="url('res2.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            'Bebo：學長！那你吃頓晚餐吧！我不會騙你的，我說到做到。<br>'
+            +'大五學長：好吧！勉為其難跟妳過去吧！反正第一次犯錯，不要太在意！<br>'
+            +'Bebo：學長，你是不是最近每天都吃腿庫狂吃油豆腐，你的分泌物真的太多！<br>'
+            +'大五學長：妳先看看自己的臉吧....<img src = "bebo4.png" style = "position: fixed;top:350px;right:0px;width: 25%;"><br>'
+            +'大五學長：是不是海邊的風都吹到你痘痘那邊！？'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play122() {
+            document.getElementById("Body").style.backgroundImage="url('fig.jpeg')";
+            document.getElementById("button12").style.display="none";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            'Bebo：你當老娘沒本事把你給做了嗎？<br>'
+            +'大五學長：坐？坐愛情摩天輪嗎？<br>'
+            +'Bebo：等等就知道我的本事，你看得見，連廟公都救不了你，讓你下地獄。<br>'
+            +'大五學長：妳當真我bang不出什麼法子來回擊嗎！<br><img src = "bebo5.png"style = "position: fixed;top:50px;left:0px;width: 20%;" ><br>'
+            +'<img src = "bban.png "style = "position: fixed;top:200px;left:500px;width: 20%;">'
+            +'<Input Type="Button" Value="Back To The Map choose Ferris wheel" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play111() {
+            document.getElementById("Body").style.backgroundImage="url('res.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '大五學長：我們到了喔！<br>'
+            +'Bebo：挖靠！居然是義家之煮！！！！！<br>'
+            +'晚餐後…<br>'
+            +'大五學長：學妹妳滿會吃的麻～都吃了十幾盤肉還挖了那麼多球冰淇淋。<br>'
+            +'Bebo：學長還好啦！我平常吃的比這個還很多。'
+            +'大五學長：看妳這麼愛吃又愛玩，要不要放暑假的時候一起去日本玩？<br>'
+            +'Bebo：好啊！那我們下次見囉～掰掰<img src = "bebo1.png" style = "position: fixed;top:-100px;left:200px;width: 30%;">'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play112() {
+            document.getElementById("Body").style.backgroundImage="url('room.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '（回到宿舍）Bebo：來看看大五學長的FB好了！<br>'
+            +'誒？這個不是我們班的班草陳光豆嗎！ 他居然跟大五學長是好朋友<br>'
+            +'班草和系草好想要兩個都擁有，好幸福，天天都可以看到這些帥哥。<br>'
+            +'好煩惱我應該跟系草的大五學長告白還是班草陳光豆呢？<img src = "gd.png" style = "position: fixed;top:350px;left:1050px;width: 30%;">'
+            +'<img src = "bebo2.png" style = "position: fixed;top:0px;left:0px;width: 30%;">'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+            
+        }
+        function play2 () {
+            document.getElementById("Body").style.backgroundImage="url('house.jpeg')";
+            document.getElementById("dody").style.display="none";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("chat").style.display="block";
+            document.getElementById("my_string").innerHTML =
+            'Bebo: 放假的日子只能在家打傳說...要升牌位的時候，媽的被我室友搞一下還在Ｃ，馬的死王XX!!!😠<br>'
+            +'滑IG看我的班草陳光豆❤️好了。怎麼可以連挖耳屎都這麼帥😍<br>'            
+            +'<img src = "gd1.png" style = "position: fixed;top:200px;left:50px;width: 30%;">'
+            +'聽說他傳說打的不錯...<br>'
+            +'要不要約他一起打呢?'
+            ;
+                document.getElementById("btn1").value="當然跟帥哥，沒有雷隊友和該死的室友";
+                document.getElementById("btn2").value="還是不要好了，畢竟我是🐷豬隊友，還是C排位的魯蛇";
+            
+            var A1 = document.getElementById("btn1").addEventListener( "click", play21, false );
+            var A2 = document.getElementById("btn2").addEventListener( "click", play22, false );
+        }
+        
+        function play21() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '[Line]<br>'
+            +'Bebo：光豆～可不可以跟你一起打傳說啊！聽說你很會帶我這種排位不高的老手<br>'
+            +'光豆：ㄜ...可以啊！那妳什麼時候可以打呢？<img src = "gd2.png" style = "position: fixed;top:0px;left:50px;width: 30%;"><br>'
+            +'Bebo：最近要忙網頁程式設計的專案，太晚做了有點趕，我們放寒假的時候，可以找_4pad7一起打啊！<br>'
+            +'光豆：_4pad7 ？ 她是誰啊？<br>'
+            +'Bebo：海大ㄍㄋㄋ宗師!  '
+            +'光豆：什麼事ㄍㄋㄋ啊？'
+            ;
+                document.getElementById("button12").style.display="block";
+                document.getElementById("btn1").value="幹你娘";
+                document.getElementById("btn2").value="割ㄋㄟㄋㄟ";
+            var A11 = document.getElementById("btn1").addEventListener( "click", play211, false );
+            var A12 = document.getElementById("btn2").addEventListener( "click", play212, false );
+        }
+        
+        function play211() {
+            document.getElementById("Body").style.backgroundImage="url('ess.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '<img src = "bebo6.png" style = "position: fixed;top:-100px;left:0px;width: 30%;">'
+            +'<img src = "47.png" style = "position: fixed;top:300px;left:1200px;width: 20%;">'
+            +'<span style ="font-size:50px;">沒錯_4pad7宗師的聖旨就是幹你娘</span>'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play212() {
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '這些都是海大割ㄋㄟㄋㄟ軍團'
+            +'<img src = "ess1.png" style = "position: fixed;top:350px;left:1050px;width: 30%;">'
+            +'<img src = "ess2.png" style = "position: fixed;top:0px;left:0px;width: 20%;">'
+            +'<img src = "ess3.png" style = "position: fixed;top:0px;left:500px;width: 20%;">'
+            +'<img src = "ess4.png" style = "position: fixed;top:500px;left:800px;width: 20%;">'
+            +'由上方宗師_4pad7所率領的軍團（上方）<br>'
+            +'_4pad7：垂掉的ㄋㄟㄋㄟ，陪我長大。<br>'
+            +'副團長心好癢：沒有ㄋㄋ，母胎單身（右1）<br>'
+            +'團員沒奶姿：喝蜂蜜檸檬，並不會長ㄋㄟㄋㄟ（右2）<br>'
+            +'工具人：我好可愛！！！要去騎bicycle~（右上）'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play22() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            'Bebo：我條件那麼好，居然都沒有對象，連找光豆打傳說的勇氣都沒有...<br>'
+            +'連B班的臭包都已經交了男朋友ㄌ，我到底大學在幹嘛啊<br>'
+            +'妳們覺得我的問題出在哪裡啊'
+            +'<img src = "bebo7.png" style = "position: fixed;top:-100px;left:100px;width: 30%;">'
+            +'<img src = "bebo8.png" style = "position: fixed;top:400px;left:1000px;width: 20%;">'
+            ;
+            
+                document.getElementById("button12").style.display="block";
+                document.getElementById("btn1").value="彈跳力不夠！";
+                document.getElementById("btn2").value="眼睛不夠大";
+            var A11 = document.getElementById("btn1").addEventListener( "click", play221, false );
+            var A12 = document.getElementById("btn2").addEventListener( "click", play222, false );
+        }
+        
+        function play221() {
+            document.getElementById("Body").style.backgroundImage="url('jump.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '加入孝女排後，我每天勤奮的練習，也都很盡孝道，四維八德通通記熟恪守婦道，光豆卻連看都不看我一眼，<br>'
+            +'說什麼bang成孝女排，就可以吸引到很多男生，也都是騙人的。<br>'
+            +'從此以後我要遁入婆羅門，研修反骨之道，讓所有我愛不到的男人都下地獄，<br>'
+            +'妳以為我會騙你嗎！我說到做到。'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play222() {
+            document.getElementById("Body").style.backgroundImage="url('eye.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '說我眼睛小的，如果我長這樣是不是就比較好看了呢...'
+            +'<img src = "mom.png" style = "position: fixed;top:100px;left:800px;width: 50%;">'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+            
+        }
+        function play3 () {
+            document.getElementById("Body").style.backgroundImage="url('par.jpeg')";
+            document.getElementById("dody").style.display="none";
+            document.getElementById("chat").style.display="block";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML =
+            'Bebo：今天約了光豆在這裡打傳說，希望我們的感情能就此升溫很多一起坐愛情摩天輪<br>'
+            +'可惡！但是上次跟學長的那場戰爭還沒打完他會不會就此打壞我的計畫<br>'
+            +'光豆：Bebo，怎麼那麼早到，我都已經提早三十分鐘來了呢?<br>'
+            +'Bebo：因為...'
+            ;
+                document.getElementById("btn1").value="我要使用六九神功對戰大五學長";
+                document.getElementById("btn2").value="因為想你想到睡不著只好早點來等";
+            
+            var A1 = document.getElementById("btn1").addEventListener( "click", play31, false );
+            var A2 = document.getElementById("btn2").addEventListener( "click", play32, false );
+        }
+        function play31() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '光豆：什麼!妳是說妳要跟我的好麻吉對戰<br>'
+            +'Bebo：因為上次在他面前我受盡了屈辱，我不能就此放過他。<br>'
+            +'光豆：其實我在以前也被他凌辱過，不然這次我就來幫妳一把吧！<br>'
+            +'Bebo：但是光豆你要怎麼幫我呢？'
+            ;
+                document.getElementById("button12").style.display="block";
+                document.getElementById("btn1").value="使用雞雞護法現身召喚破麻";
+                document.getElementById("btn2").value="去去武器走去妳的痘痘那邊";
+            var A11 = document.getElementById("btn1").addEventListener( "click", play311, false );
+            var A12 = document.getElementById("btn2").addEventListener( "click", play312, false );
+        }
+        function play32() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '光豆：這什麼爛回答！對了我有件事情想跟妳說，說起來還真害臊<br>我喜歡上妳....  妳們班的阿瑞，她笑起來的樣子好可愛喔！<br>'
+            +'Bebo：阿瑞？那個人算什麼，你怎麼就不把我放在你眼裡呢！<br>'
+            +'光豆：此情可待成追憶，只是當時已惘然。 我以前是喜歡過妳，但聽說妳已經ㄍㄋㄋ後我覺得我不行<br>'
+            +'Bebo：但是我覺得可以！<br>'
+            +'光豆：ㄍㄋㄋ!!!'
+            +'<img src = "10.jpg" style = "position: fixed;top:0px;left:0px;width: 30%;">'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+        
+        function play311() {
+            document.getElementById("Body").style.backgroundImage="url('cir.jpg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '<img src = "gd3.png" style = "position: fixed;top:0px;left:600px;width: 80%;">'
+            +'Bebo:破麻護法保護我免於大五學長的淫威！ 光豆謝謝你了<br>'
+            +'光豆：不用客氣，其實我本來就對妳滿有好感的。<br>要不是藉由這次的機會我都不知道該怎麼表白，做我女朋友吧！<br>'
+            +'Bebo：好啊！ 你要成為我的守護甜心喔～'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play312() {
+            document.getElementById("Body").style.backgroundImage="url('69.jpg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '大五學長：光豆快離開那個綠茶婊，她根本都在到處勾引男人，別被她騙了<br>'
+            +'Bebo：胡扯什麼！整天吃腿庫飯的傢伙！<br>'+'痘痘洗乾淨 才能再摸，臉用濕之後 加水水弄，不能用力摳 那樣會痛<br>'
+            +'大五學長：不～～我的攻擊都失效了！<br>'
+            +'Bebo：誰叫你的光豆學弟已經是我的俘虜了！<img src = "gd.png" style = "position: fixed;top:350px;left:1050px;width: 30%;">'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+        function play4 () {
+            document.getElementById("Body").style.backgroundImage="url('tem.jpeg')";
+            document.getElementById("dody").style.display="none";
+            document.getElementById("chat").style.display="block";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML =
+            'Bebo：終於來到日本當交換學生，<br>不過大五學長因為有事不能來！<br>來到神奈川當地滿有名的一間神社，希望能來求一段美好的姻緣。<br>'
+            +'前面人好眼熟喔！ㄟ！那個是兩津勘吉誒！！！<br>怎麼可能，他居然是真實存在的人嗎？'
+            +'<img src = "wu1.png" style = "position: fixed;top:350px;left:650px;width: 30%;">'
+            ;
+                document.getElementById("btn1").value="世界上真的有兩津啊！";
+                document.getElementById("btn2").value="看錯了！是大猩猩啊！";
+            
+            var A1 = document.getElementById("btn1").addEventListener( "click", play41, false );
+            var A2 = document.getElementById("btn2").addEventListener( "click", play42, false );
+        }
+        
+        function play41() {
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '勘吉：Hi! 我是兩津勘吉～<br>'
+            +'Bebo：妳好我是台灣六九大魔王bb菜菜子。<br>'
+            +'勘吉：妳怎麼跑到這麼遠的神社，這邊越晚越危險，妳長這個樣子還是早點回家，那不然會嚇到路人。<br>'
+            +'Bebo：是因為我長的太醜，所以連全日本最不想嫁的男人都嫌棄我嗎...<br>'
+            +'我怎麼這麼可悲，那勘吉能不能幫我實現一個的願望。<br>'
+            +'勘吉：可以是可以但是要錢喔～'
+            ;
+                document.getElementById("button12").style.display="block";
+                document.getElementById("btn1").value="我想要中川當我的男朋友";
+                document.getElementById("btn2").value="我想要麗子當我的女朋友";
+            var A11 = document.getElementById("btn1").addEventListener( "click", play411, false );
+            var A12 = document.getElementById("btn2").addEventListener( "click", play412, false );
+        }
+        function play411() {
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '<img src = "img.png" style = "position: fixed;top:200px;left:600px;width: 30%;">'
+            +'勘吉：中川～這個妹妹說想要你當她男朋友誒，你說怎麼辦啊才好。<br>'
+            +'圭一：反正我也單身很久了，趁這個機會好好跨國來段異國戀也不錯！<br>'
+            +'Bebo：中川，所以你的意思是可以跟我交往囉？<br>'
+            +'圭一：不過和我交往的女孩都有特別的魅力，妳有嗎？<br>'
+            +'Bebo：我有個本事還不錯，就是超級會講幹話，但通常沒人會聽，可是我還是會一直講下去，像是＠＃＄＃＃＠＆＾＊）＿（』『：？。，“｜＠＃＄＠＄＃.......<br>'
+            +'圭一：我生平第一次遇到這麼會講的女孩，妳果然很有魅力～<br>'
+            +'Get 閃光'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+
+        function play412() {
+            document.getElementById("Body").style.backgroundImage="url('tem.jpeg')";
+            document.getElementById("button12").style.display="block";
+            document.getElementById("my_string").innerHTML = "";
+            document.getElementById("my_string").innerHTML =
+            '<img src = "img2.png" style = "position: fixed;top:150px;left:600px;width: 30%;">'
+            +'<img src = "img3.png" style = "position: fixed;top:200px;left:0px;width: 20%;">'
+            +'<img src = "img4.jpg" style = "position: fixed;top:400px;left:1200px;width: 15%;">'
+            +'勘吉：麗子～這個妹妹說想要你當女朋友誒，你覺得如何。<br>'
+            +'麗子：這樣啊，我還沒跟女生談過戀愛...可以試試看啊。<br>'
+            +'Bebo：麗子前輩，妳不介意年紀比自己小的對象嗎？<br>'
+            +'麗子：不會啊！只要妳長的是我的菜就可以了。<br>'
+            +'Bebo：所以我是前輩的囊中物了是嗎？<br>'
+            +'麗子：哈哈～好可愛喔，對啊走吧，我帶妳去喝一家叫滿妹的飲料店，長得滿像妳的～<br>'
+            +'Get 閃光'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";
+        }
+        function play42() {
+            document.getElementById("Body").style.backgroundImage="url('w1.png')";
+            document.getElementById("button12").style.display="none";
+            document.getElementById("my_string").innerHTML ="";
+            document.getElementById("my_string").innerHTML =
+            '[這是支線]'
+            +'那我就送你們大猩猩吧！'
+            +'這樣好像有點太單調了。'
+            +'我就來介紹我們的女主角Bebo!<br>'
+            +'現實中的她，是個認真的女孩，會想辦法做到她想要做的事情，把考試考好，把程式打好，把球練好，談一場轟轟烈烈的戀愛。<br>'
+            +'喜歡做些手工藝品，愛吃各種美食，雖然嘴巴滿壞的，但心地很善良，在當她室友的一年裡，看著她從忙著熱音社到忙校隊，<<br>'
+            +'她很厲害對吧！至少我覺得滿厲害的！<br>'
+            +'謝謝妳願意和我同一組作為搭檔，我很開心。'
+            +'專案太晚弄了，搞得有點哩哩拉拉，雖然打程式很無聊，但和妳共事時妳很快樂。'
+            +'<img src = "w2.jpeg" style = "position: fixed;top:0px;left:1000px;width: 30%;">'
+            +'<Input Type="Button" Value="Back To The Map" onClick="window.location.reload();">'
+            ;
+            document.getElementById("btn1").style.display="none";
+            document.getElementById("btn2").style.display="none";;
+        }
+
+        window.addEventListener( "load",start, false);
+    </script>
+    <body id = "Body">
+        <div id = "dody" >
+            <img src="school.png" class = "sch"  id="img1">
+            <img src="house.png" class = "hou" id="img2">
+            <img src="paris.png" class = "par" id="img3">
+            <img src="temple.png" class = "tem" id="img4">
+            <button class="bt" onclick="javascript:location.href='home.html'" style = "top:700px;left:300px; ">回選角色</button>
+        </div>
+        <div id ="button12" style="display:none;">
+            <input type="button" id = "btn1" class = "bt">
+            <br>
+            <input type="button" id = "btn2" class = "bt">
+        </div>
+        <div id = chat  class = "chat" ><p id="my_string"></p></div>
+    </body>
+</html>

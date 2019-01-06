@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dunja's Story</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-image: url("地圖.jpg");
+                background-repeat: no-repeat;
+                background-color: pink;
+                background-position-x: center;
+            }
+
+            img {
+                position: absolute;
+            }
+
+            #school {
+                top: 40px;
+                left: 320px;
+            }
+
+            #restaurant {
+                top: 500px;
+                left: 400px;
+            }
+
+            #cinema {
+                top: 250px;
+                left: 600px;
+            }
+
+            #home {
+                top: 150px;
+                left: 900px;
+            }
+
+            #ocean {
+                top: 550px;
+                left: 1000px;
+            }
+
+            #school:hover {
+                border-style: solid;
+                border-width: 7px;
+                border-color: yellow;
+            }
+
+            #restaurant:hover {
+                border-style: solid;
+                border-width: 7px;
+                border-color: yellow;
+            }
+
+            #cinema:hover {
+                border-style: solid;
+                border-width: 7px;
+                border-color: yellow;
+            }
+
+            #home:hover {
+                border-style: solid;
+                border-width: 7px;
+                border-color: yellow;
+            }
+
+            #ocean:hover {
+                border-style: solid;
+                border-width: 7px;
+                border-color: yellow;
+            }
+
+            .hide { display: none; }
+
+            #conversation {
+                position: absolute;
+                top: 585px;
+                left: 250px;
+                border-style: solid;
+                border-width: 9px;
+                border-radius: 50px;
+                height: 150px;
+                width: 1014px;
+                border-color: rgba(2, 123, 179, 0.705);
+                background-color: rgba(230, 164, 247, 0.699);
+            }
+
+            #message {
+                animation-duration: 2s;
+                animation-name: slidein1;
+                position: relative;
+                top: 10px;
+                left: 30px;
+            }
+
+            #person {
+                position: absolute;
+                top: 200px;
+                left: 500px;
+            }
+
+            button {
+                position: relative;
+                top: 20px;
+                left: 350px;
+                width: 200px;
+                height: 40px;
+                background:    #3d85c6;
+                background:    -webkit-linear-gradient(#3d85c6, #c27ba0);
+                background:    linear-gradient(#3d85c6, #c27ba0);
+                border-radius: 16px;
+                box-shadow:    3px 3px #444444;
+                padding:       8px 20px;
+                color:         #ffffff;
+                display:       inline-block;
+                font:          bold 400 24px/3 "Calibri", sans-serif;
+                text-align:    center;
+                text-shadow:   1px 1px #000000;
+            }
+
+            @keyframes slidein1 {
+                from {
+                    padding-left: 100%;
+                    width: 300%;
+                }
+
+                to {
+                    padding-left: 0%;
+                    width: 100%;
+                }
+            }
+            #message { float: left;}
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var c;
+            var interval1=null;
+            var interval2=null;
+
+            function start()
+            {
+                c = 0;
+                var img1 = document.getElementById("school").addEventListener("click", place1, false);
+                var img2 = document.getElementById("restaurant").addEventListener("click", place2, false);
+                var img3 = document.getElementById("cinema").addEventListener("click", place3, false);
+                var img4 = document.getElementById("home").addEventListener("click", place4, false);
+                var img5 = document.getElementById("ocean").addEventListener("click", place5, false);
+            }
+
+            function place1()
+            {
+                document.getElementById("body").style.backgroundImage="url('教室.jpg')";
+                if(c==0){
+                    document.getElementById("place").style.display = "none";
+                    document.getElementById("conversation").style.display = "inline";
+                    c = 1;
+                }
+                document.getElementById("person").setAttribute("src", "111.png");
+                document.getElementById("person").style.top = "-100px";
+                document.getElementById("person").style.left = "200px";
+                document.getElementById("message").innerHTML = "哈囉哈囉!我肆哈囉姐~~<br>尼好可i唷♥可以認識尼嗎?";
+                document.getElementById("b1").innerHTML = "好..我叫莤莤";
+                document.getElementById("b2").innerHTML = "呃..我趕時間";
+                interval = window.setInterval(show, 3000);
+                document.getElementById("b1").addEventListener("click", place11, false);
+                document.getElementById("b2").addEventListener("click", place12, false);
+            }
+
+            function place11()
+            {
+                document.getElementById("message").innerHTML = "哈囉莤莤!!<br>我好像聽過尼耶<br>尼肆不肆很會打籃球，可不可以教我?<br>霸脫霸脫~~~";
+                document.getElementById("b1").innerHTML = "不然跟我們一起練球";
+                document.getElementById("b2").innerHTML = "你的身材好像不太適合...";
+                document.getElementById("b1").addEventListener("click", place13, false);
+                document.getElementById("b2").addEventListener("click", place14, false);
+            }
+
+            function place12()
+            {
+                document.getElementById("message").innerHTML = "蛤~怎摸醬~~~~~~~<br>人家還想多認識尼一點的說<br>那好歹留個連絡方式嘛~~";
+                document.getElementById("b1").innerHTML = "給她真的賴";
+                document.getElementById("b2").innerHTML = "把室友的賴給她";
+                document.getElementById("b1").addEventListener("click", place15, false);
+                document.getElementById("b2").addEventListener("click", place16, false);
+            }
+
+            function place13()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>到了練球的時間，哈囉姐不斷找藉口說不能去<br>原來她只是想找機會跟你近距離接觸!<br>哈囉姐:「怎麼不接人家丟給你的球啦~哼哼!」<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place14()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>你站在原地<br>看著生氣的哈囉姐轉身離開的背影<br>整個人不禁鬆了一口氣<br>終於擺脫這個國中+9妹ㄏ一ㄏ一<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "103.png");
+                document.getElementById("person").style.top = "10px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place15()
+            {
+                document.getElementById("message").innerHTML = "耶穴穴~~~~人家晚上找尼聊天~~<br>-------到了晚上-------<br>哈囉!莤莤♥♥♥Suprise~~";
+                document.getElementById("b1").innerHTML = "你怎麼在這?!";
+                document.getElementById("b2").innerHTML = "XX!";
+                document.getElementById("b1").addEventListener("click", place17, false);
+                document.getElementById("b2").addEventListener("click", place18, false);
+            }
+
+            function place16()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>過沒幾天吃寢聚時你聽到室友生氣的抱怨著<br>她遇到一個來路不明的+9妹加自己的賴<br>對方不但不承認自己加錯人還每天照三餐問候有夠煩的!<br>而你默默地在偷笑(真壞)<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "102.png");
+                document.getElementById("person").style.top = "40px";
+                document.getElementById("person").style.left = "450px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place17()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>晚上回家發現哈囉姐跟你媽聊得正嗨<br>原來哈囉姐是你媽幫你找的相親對象!<br>下午還先去試探你呢<br>真恐怖<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "101.png");
+                document.getElementById("person").style.top = "100px";
+                document.getElementById("person").style.left = "500px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place18()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>因為你下意識的口出惡言讓哈囉姐超級生氣<br>她便開始散播不實謠言攻擊你<br>現在大家都在看你們的笑話<br>只能說女人真的不好惹<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "104.png");
+                document.getElementById("person").style.top = "15px";
+                document.getElementById("person").style.left = "500px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place2()
+            {
+                document.getElementById("body").style.backgroundImage="url('餐廳.jpg')";
+                if(c==0){
+                    document.getElementById("place").style.display = "none";
+                    document.getElementById("conversation").style.display = "inline";
+                    c = 1;
+                }
+                document.getElementById("person").setAttribute("src", "555.png");
+                document.getElementById("person").style.top = "180px";
+                document.getElementById("person").style.left = "450px";
+                document.getElementById("message").innerHTML = "安妞哈ㄙㄟ唷~我是蘇繽咿尼搭~~<br>第一次來台灣有什麼推薦的食物嗎?";
+                document.getElementById("b1").innerHTML = "不要吃餐廳!";
+                document.getElementById("b2").innerHTML = "吃我啊";
+                interval = window.setInterval(show, 3000);
+                document.getElementById("b1").addEventListener("click", place21, false);
+                document.getElementById("b2").addEventListener("click", place22, false);
+            }
+
+            function place21()
+            {
+                document.getElementById("message").innerHTML = "麼?不吃餐廳?<br>啊~我聽說台灣小吃很瑪西擻唷<br>你可不可以當我的一日地陪呢?<br>切拜~~~~~~~";
+                document.getElementById("b1").innerHTML = "好吧!今天也沒事";
+                document.getElementById("b2").innerHTML = "米阿餒~我等等有事";
+                document.getElementById("b1").addEventListener("click", place23, false);
+                document.getElementById("b2").addEventListener("click", place24, false);
+            }
+
+            function place22()
+            {
+                document.getElementById("message").innerHTML = "喔摸摸!!<br>ㄊㄟ滿撒郎都這麼開放嗎???!!!<br>不然來我家吃拉麵吧嘿嘿";
+                document.getElementById("b1").innerHTML = "好哇~";
+                document.getElementById("b2").innerHTML = "!!...騷瑞我先走了";
+                document.getElementById("b1").addEventListener("click", place25, false);
+                document.getElementById("b2").addEventListener("click", place26, false);
+            }
+
+            function place23()
+            {
+                document.getElementById("message").innerHTML = "耶~~康撒哈尼搭~~<br>台灣人都好~友善唷!<br>那我們趕快開始覓食吧♥";
+                document.getElementById("b1").innerHTML = "帶她去喝珍珠奶茶";
+                document.getElementById("b2").innerHTML = "帶她去吃臭豆腐";
+                document.getElementById("b1").addEventListener("click", place27, false);
+                document.getElementById("b2").addEventListener("click", place28, false);
+            }
+
+            function place24()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>你跟蘇繽閒聊一下之後就互相道別了<br>人家蘇繽可是韓國有名的Youtuber呢<br>錯失了認識網紅的良機啊啊啊!!<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "105.png");
+                document.getElementById("person").style.top = "380px";
+                document.getElementById("person").style.left = "650px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place25()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>你接受了蘇繽邀約<br>兩人乾柴烈火一發不可收拾<br>共度了一個美好的夜晚<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "106.png");
+                document.getElementById("person").style.top = "20px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place26()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>突然的拒絕讓蘇繽很是錯愕<br>心裡不免有些難過<br>你是因為甚麼原因才突然反悔拒絕呢?<br>ㄎㄎㄎ<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place27()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>乾!蘇繽對於珍珠的口感感到非常反胃!<br>你在她心裡的印象真的是被珍奶害慘啦~~~QQ<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "107.png");
+                document.getElementById("person").style.top = "20px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place28()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>怎麼一開始就帶外國人去吃臭豆腐呢?!<br>喔嗚...沒想到她超愛der!!!!<br>你也太賽了吧~~~好感度up~up~~~<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "108.png");
+                document.getElementById("person").style.top = "20px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place3()
+            {
+                document.getElementById("body").style.backgroundImage="url('電影院.jpg')";
+                if(c==0){
+                    document.getElementById("place").style.display = "none";
+                    document.getElementById("conversation").style.display = "inline";
+                    c = 1;
+                }
+                document.getElementById("person").setAttribute("src", "333.png");
+                document.getElementById("person").style.top = "165px";
+                document.getElementById("person").style.left = "350px";
+                document.getElementById("message").innerHTML = "(對視了幾秒)<br>...摳尼幾哇!我是小松菜奈~~";
+                document.getElementById("b1").innerHTML = "小..小松菜奈!!!";
+                document.getElementById("b2").innerHTML = "拍照!!!!簽名!!!!";
+                interval = window.setInterval(show, 3000);
+                document.getElementById("b1").addEventListener("click", place31, false);
+                document.getElementById("b2").addEventListener("click", place32, false);
+            }
+
+            function place31()
+            {
+                document.getElementById("message").innerHTML = "噓噓噓!!低調一點~<br>我只是剛好出來放鬆一下哈哈<br>你可以假裝不認識我~";
+                document.getElementById("b1").innerHTML = "好...!我不認識你~呵呵";
+                document.getElementById("b2").innerHTML = "啊啊啊小松菜奈啊啊啊啊啊";
+                document.getElementById("b1").addEventListener("click", place33, false);
+                document.getElementById("b2").addEventListener("click", place34, false);
+            }
+
+            function place32()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>哇~~你太激動啦~<br>小松菜奈的經紀人馬上就出現<br>把小松菜奈帶走了QQ<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "109.png");
+                document.getElementById("person").style.top = "12px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place33()
+            {
+                document.getElementById("message").innerHTML = "哈哈哈~我難得到台灣<br>那你就當我在台灣的第一位朋友吧!<br>要不要一起來看電影首映會?";
+                document.getElementById("b1").innerHTML = "啊啊好...!!!";
+                document.getElementById("b2").innerHTML = "我我我真的好喜歡你♥♥";
+                document.getElementById("b1").addEventListener("click", place35, false);
+                document.getElementById("b2").addEventListener("click", place36, false);
+            }
+
+            function place34()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>聽到你的聲音<br>電影院裡的人馬上聚集過來<br>小松菜奈被團團圍住<br>你和女神的緣分也就這樣消失在人群中了QQ<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place35()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>和女神小松菜奈一起看完電影後<br>她還送你一張簽名照讓你覺得此生無憾了<br>之後什麼也沒發生<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place36()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>女神聽見你的告白害羞的臉都紅了<br>她送你簽名照之外還給你一個擁抱!!<br>一個禮拜都不想洗澡了呢!!<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "110.png");
+                document.getElementById("person").style.top = "100px";
+                document.getElementById("person").style.left = "500px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place4()
+            {
+                document.getElementById("body").style.backgroundImage="url('客廳.jpg')";
+                if(c==0){
+                    document.getElementById("place").style.display = "none";
+                    document.getElementById("conversation").style.display = "inline";
+                    c = 1;
+                }
+                document.getElementById("person").setAttribute("src", "999.png");
+                document.getElementById("person").style.top = "90px";
+                document.getElementById("person").style.left = "600px";
+                document.getElementById("message").innerHTML = "(有一天你回到家，<br>一踏進客廳就看見一個不良少年...)";
+                document.getElementById("b1").innerHTML = "你是誰??!!";
+                document.getElementById("b2").innerHTML = "轉身跑走";
+                interval = window.setInterval(show, 3000);
+                document.getElementById("b1").addEventListener("click", place41, false);
+                document.getElementById("b2").addEventListener("click", place42, false);
+            }
+
+            function place41()
+            {
+                document.getElementById("message").innerHTML = "我是來討債的!!<br>你們家欠我們87萬到底什麼時候才要還!!<br>不要逼我動手喔!";
+                document.getElementById("b1").innerHTML = "蛤?可是..我一個人住欸...";
+                document.getElementById("b2").innerHTML = "我什麼都不知道啊啊!!!";
+                document.getElementById("b1").addEventListener("click", place43, false);
+                document.getElementById("b2").addEventListener("click", place44, false);
+            }
+
+            function place42()
+            {
+                document.getElementById("message").innerHTML = "(不良少年看到你準備逃跑<br>立刻從沙發上跳起來要追你!";
+                document.getElementById("b1").innerHTML = "躲起來報警";
+                document.getElementById("b2").innerHTML = "跑到街上求救";
+                document.getElementById("b1").addEventListener("click", place45, false);
+                document.getElementById("b2").addEventListener("click", place46, false);
+            }
+
+            function place43()
+            {
+                document.getElementById("message").innerHTML = "什麼???!!!(抬頭看你)<br>你不是跟爸爸媽媽還有弟弟....一起住嗎...<br>..........";
+                document.getElementById("b1").innerHTML = ".....?";
+                document.getElementById("b2").innerHTML = "直接報警";
+                document.getElementById("b1").addEventListener("click", place47, false);
+                document.getElementById("b2").addEventListener("click", place48, false);
+            }
+
+            function place44()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>結果你就被抓去當人質了!!!<br>後來錢到底是不是你家欠的然後有沒有還清<br>還有你是不是還活著<br>嗯....其實我也不知道<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "112.png");
+                document.getElementById("person").style.top = "0px";
+                document.getElementById("person").style.left = "265px";
+                interval1 = window.setInterval(hide, 0);
+            }
+            function place45()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>報警後警察利用監視器追緝<br>成功找到嫌犯!<br>可惜他只是一個地方上人稱資工8+9的小嘍囉<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "113.png");
+                document.getElementById("person").style.top = "20px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place46()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>街訪鄰居們聽到你大呼小叫紛紛探出頭<br>可惜沒人敢輕舉妄動<br>8+9逃跑啦~~~~~<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "114.png");
+                document.getElementById("person").style.top = "10px";
+                document.getElementById("person").style.left = "265px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place47()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>原來8+9被你的美貌震懾住了!!<br>你也被他承諾浪子回頭金盆洗手的諾言沖昏頭~~<br>快去收服他吧!!<br>p.s.順便叫他剪頭髮<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "115.png");
+                document.getElementById("person").style.top = "90px";
+                document.getElementById("person").style.left = "650px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place48()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>「好好好我走TAT」<br>8+9依依不捨地離開你家<br>日後便開始對你展開瘋狂的追求!!<br>看來你魅力無法擋，市場包山包海呢ㄏㄏ<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "116.png");
+                document.getElementById("person").style.top = "15px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place5()
+            {
+                document.getElementById("body").style.backgroundImage="url('海邊.jpg')";
+                if(c==0){
+                    document.getElementById("place").style.display = "none";
+                    document.getElementById("conversation").style.display = "inline";
+                    c = 1;
+                }
+                document.getElementById("person").setAttribute("src", "777.png");
+                document.getElementById("person").style.top = "200px";
+                document.getElementById("person").style.left = "600px";
+                document.getElementById("message").innerHTML = "*-@哈%#(&*+~囉!~~~<br>$#你!*&也是$%)一&~!#*^個$)(^@#!&%&人嗎$!~@...?";
+                document.getElementById("b1").innerHTML = "#%@*_!";
+                document.getElementById("b2").innerHTML = "*&^#$#@= =";
+                interval = window.setInterval(show, 3000);
+                document.getElementById("b1").addEventListener("click", place51, false);
+                document.getElementById("b2").addEventListener("click", place52, false);
+            }
+
+            function place51()
+            {
+                document.getElementById("message").innerHTML = "%@#要^&不要(&&^$#來~!!@我的)#@^*石&*$.頭屋+!<br>~#^啊>$%?^&^$我有$%&^很@$棒<)#^的~!東$^__(%#西可<br>以~#@!#給(_~你+(^#-看*/!&唷~~&%<br>&$!(^&/-+<&#.~@%)_*#!+^^!";
+                document.getElementById("b1").innerHTML = "(~@^&$_!";
+                document.getElementById("b2").innerHTML = "*-/$#(*^=((";
+                document.getElementById("b1").addEventListener("click", place53, false);
+                document.getElementById("b2").addEventListener("click", place54, false);
+            }
+
+            function place52()
+            {
+                document.getElementById("message").innerHTML = "$%#&嘿*&嘿!@<br>)*其%$實我(#$*^是感(@$-*覺//*.@#$到<br>你^%$跟0@!我是_(*^@!#同*$一種*ˋ$%人&~<br>大*&^#家一~#定)(*都$%@$#聽@_(^@!不懂^$*$我^~(們$+<br>=8在#%#說!*/)^什$@麼#@*+~嘻./-_*嘻!";
+                document.getElementById("b1").innerHTML = "(~@^&$!!_@$#@(&_**?";
+                document.getElementById("b2").innerHTML = "%@!_+-*+$#!@=((";
+                document.getElementById("b1").addEventListener("click", place55, false);
+                document.getElementById("b2").addEventListener("click", place56, false);
+            }
+
+            function place53()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>原來派星星是當地無人不知不人不曉的淫魔!!<br>你被目睹了和他手牽手一起走進石頭屋<br>居民們議論紛紛真是尷尬爆了!<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "117.png");
+                document.getElementById("person").style.top = "10px";
+                document.getElementById("person").style.left = "550px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place54()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>其實派星星是個可惡的變態!!<br>呼~幸好你沒有去他的石頭屋<br>不然就要....GG了<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "118.png");
+                document.getElementById("person").style.top = "100px";
+                document.getElementById("person").style.left = "500px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place55()
+            {
+                document.getElementById("message").innerHTML = "當%#^然_*@好7-/*~%#啊*&(&!!!!<br>%$@*j從^&$&#來*)_+(@都沒^$#!_+有/!#人%*^$#跟__(~!+.%#我<br>要&%#過*-#!^+賴~~!!!!&$我*!~-的賴^#&_是(@%$^#%$#^*...<br>";
+                document.getElementById("b1").innerHTML = "^%#";
+                document.getElementById("b2").innerHTML = "(^#!$@~#/-";
+                document.getElementById("b1").addEventListener("click", place57, false);
+                document.getElementById("b2").addEventListener("click", place58, false);
+            }
+
+            function place56()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>見你沒有要附和他的意思<br>派星星就去尋找下一個騷擾對象了<br>(還有其他支線和場景，快按重新整理去玩8~~~)<br>p.s.你知道派星星的真面目了嗎?"
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place57()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>你們兩人用怪胎語言聊得甚是起勁<br>你不知不覺墜入了派星星的魅力深淵<br>朝夕相處後他也決定與你共度餘生!!<br>(還有其他支線和場景，快按重新整理去玩8~~~)<br>p.s.你知道派星星的真面目了嗎?";
+                document.getElementById("person").setAttribute("src", "119.png");
+                document.getElementById("person").style.top = "30px";
+                document.getElementById("person").style.left = "500px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function place58()
+            {
+                document.getElementById("message").innerHTML = "Ending:<br>結束了你們的一面之緣後回到家裡<br>正當你後悔著沒加賴，卻突然看見新聞畫面中熟悉的面孔<br>是派星星!!!<br>「藏匿多年的猥褻慣犯今終落網!!」<br>(還有其他支線和場景，快按重新整理去玩8~~~)";
+                document.getElementById("person").setAttribute("src", "120.png");
+                document.getElementById("person").style.top = "10px";
+                document.getElementById("person").style.left = "500px";
+                interval1 = window.setInterval(hide, 0);
+            }
+
+            function show()
+            {
+                document.getElementById("answer").style.display = "inline";
+            }
+
+            function hide()
+            {
+                document.getElementById("answer").style.display = "none";
+            }
+
+            window.addEventListener("load", start, false);
+        </script>
+    </head>
+    <body id="body">
+        <div id="place" style="display: inline;">
+            <img id="school" width="240px" src="去背學校.png">
+            <img id="restaurant" width="230px" src="去背餐廳.png">
+            <img id="cinema" width="180px" src="去背電影院.png">
+            <img id="home" width="280px" src="去背家.png">
+            <img id="ocean" width="200px" src="去背箭頭.png">
+        </div>
+        <img id="person">
+        <div id="conversation" style="display: none">
+            <p id="message"></p>
+            <span id="answer" style="display: none">
+                <button id="b1"></button><br><br>
+                <button id="b2"></button>
+            </span>
+        </div>
+    </body>
+</html>
